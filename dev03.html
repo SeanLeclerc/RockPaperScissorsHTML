@@ -1,0 +1,213 @@
+<html>
+
+<head>
+<title>Roche, Papier, Ciseau</title>
+
+<link rel="icon" type="image/gif" href="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTsSnUcxYJ2k2eyn1BYZ9GCad-1AVrzRjKkLAH6jV5AviKj6y8XLvGDbQ" />
+</head>
+
+<style>
+
+body{
+	background-image: url("ggimg.jpg")	
+}
+
+
+.gg{
+			  position: relative;
+	  top: -350px;
+	
+}
+
+.sweg{
+			  position: relative;
+	  top: 350px;
+  left: 400px;
+	
+	
+}
+#img{
+	border: 1px solid black;
+}
+
+#sel_menu{
+	Width:120px;	
+	
+}
+
+#sel_menu option{
+  width:120px;   
+}
+
+.nice{
+	
+    	    
+      
+      font-family: futura;
+      font-style: italic;
+      
+      width:100%;
+      
+      margin: 0 auto;
+      text-align: center;
+      
+      color:#red;
+      font-size:45px;
+      font-weight: bold;
+      
+        -webkit-animation:colorchange 20s infinite alternate;
+      
+      
+    }
+
+    @-webkit-keyframes colorchange {
+      0% {
+        
+        color: blue;
+      }
+      
+      10% {
+        
+        color: #8e44ad;
+      }
+      
+      20% {
+        
+        color: #1abc9c;
+      }
+      
+      30% {
+        
+        color: #d35400;
+      }
+      
+      40% {
+        
+        color: blue;
+      }
+      
+      50% {
+        
+        color: #34495e;
+      }
+      
+      60% {
+        
+        color: blue;
+      }
+      
+      70% {
+        
+        color: #2980b9;
+      }
+      80% {
+     
+        color: #f1c40f;
+      }
+      
+      90% {
+     
+        color: #2980b9;
+      }
+      
+      100% {
+        
+        color: pink;
+      }
+
+
+	
+}
+</style>
+
+
+
+<script>
+
+var jp = 0;
+var op = 0;
+function jouer(){
+if(jp < 3 && op < 3){ 
+	var r = Math.floor(Math.random() * 3) + 1;
+	
+	if(r == 1) document.getElementById('ordi').src = "r_gauche.jpg";
+
+	if(r == 2) document.getElementById('ordi').src = "p_gauche.jpg";
+
+	if(r == 3) document.getElementById('ordi').src = "c_gauche.jpg";
+
+	var e = document.getElementById('sel_menu');
+	var c = e.options[e.selectedIndex].value;
+	if(c == "Roche") document.getElementById('joueur').src = "r_droite.jpg";
+	if(c == "Papier") document.getElementById('joueur').src = "p_droite.jpg";
+	if(c == "Ciseaux") document.getElementById('joueur').src = "c_droite.jpg";
+
+	if(r == 1 && c == "Papier"){
+		jp++;
+		document.getElementById('jpoint').innerHTML = "Joueur : " + jp;
+	}
+	if(r == 1 && c == "Ciseaux"){
+		op++;
+		document.getElementById('opoint').innerHTML = "Ordinateur : " + op;
+	}
+	if(r == 2 && c == "Ciseaux"){
+		jp++;
+		document.getElementById('jpoint').innerHTML = "Joueur : " + jp;
+	}
+	if(r == 2 && c == "Roche"){
+		op++;
+		document.getElementById('opoint').innerHTML = "Ordinateur : " + op;
+	}
+	if(r == 3 && c == "Roche"){
+		jp++;
+		document.getElementById('jpoint').innerHTML = "Joueur : " + jp;
+	}
+	if(r == 3 && c == "Papier"){
+		op++;
+		document.getElementById('opoint').innerHTML = "Ordinateur : " + op;
+	}
+}
+}
+
+</script>
+
+
+
+
+
+
+<body>
+<video controls muted class='sweg' autoplay loop>
+
+<source src="vid.mp4" type="video/mp4">
+
+</video>
+
+<center class='gg'>
+
+
+
+<img id='ordi' class='img' src='p_gauche.jpg'>
+
+<img id='joueur' class='img' src='p_droite.jpg'>
+
+<br>
+<p class='nice' id='opoint' style="display:inline">Ordinateur : 0</p><p class='nice' style="display:inline">Pointage</p><p class='nice' id='jpoint' style="display:inline">Joueur : 0</p>
+<br>
+<br>
+<select name='damn' id='sel_menu'>
+<option class='nice' id='roche'>Roche</option>
+<option class='nice' id='papier'>Papier</option>
+<option class='nice' id='ciseaux'>Ciseaux</option>
+</select>
+
+<button class='nice' onClick="jouer()">>Jouer<</button>
+</center>
+
+
+
+</body>
+
+
+
+</html>                               
